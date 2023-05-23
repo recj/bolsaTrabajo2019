@@ -1,0 +1,123 @@
+<div class="row p-5">
+    <div class="col-md-6 mx-auto">
+        <div class="card ">
+
+            <div class="card-body">
+                <form action="/links/search" method="POST">
+
+                    <h3>Busqueda de empleo: </h3>
+                    <div class="form-row">
+
+                        <div class="form-group col-md-3">
+                            <label for="exampleFormControlSelect1">Categoria</label>
+                            <select class="form-control" name="categoria">
+                                <option>Cualquier categoria</option>
+
+                                {{#each categoria }}
+
+                                <option>{{nombre}}</option>
+
+
+                                {{/each}}
+
+
+                            </select>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="exampleFormControlSelect1">Contrato</label>
+                            <select class="form-control" name="contrato">
+                                <option>Cualquier contrato</option>
+
+                                <option>Por contrato</option>
+                                <option>Beca/pasantia</option>
+                                <option>Por horas</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                            <label for="exampleFormControlSelect1">Ciudad</label>
+                            <select class="form-control" name="ciudad">
+                                <option>Cualquier ciudad</option>
+
+                                {{#each ciudad }}
+                                <option>{{nombreciudad}}</option>
+
+
+                                {{/each}}
+
+
+
+                            </select>
+
+
+                        </div>
+
+                        <button class="btn btn-primary col-md-2 my-sm-4" type="submit">Buscar</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<div class="container p-4">
+    <h4 class="col-md-9 mx-auto">Resultado: </h4>
+    <div class="row">
+        
+        {{#each links }}
+        <div class="col-md-9 mx-auto p-4">
+            <div class="card text-left">
+                <div class="card-body">
+                       
+                      <h5 class='card title'>Organizacion: {{fullname}}</h5>
+                    <h5 class="card-title">
+                        Puesto Laboral: {{titulo}}
+                    </h5>
+                    <h5 class="m-2 text-left mx-auto">Categoria: {{categoria}}</h5>
+                    <h6 class="m-2 text-left mx-auto">Descripcion: </h6>
+                    
+                    <h6 class="m-2 text-center mx-auto">{{descripcion}}</h6>
+                    <h6>Ubicacion: {{ubicacion}} </h6>
+
+                    <h6>Tipo de jornada: {{tipojornada}}    |    Tipo de periodo: {{tipoperiodo}}    |    Tipo de contrato:
+                        {{tipocontrato}}</h6>
+                    <h6>Salario estimado: {{salario}}</h6>
+                    <h6>Experiencia: {{experiencia}}</h6>
+                    <h6>Telefono: {{telefono}}</h6>
+
+                    <h6>Fecha limite de postulacion: {{fechapresentacion}} </h6>
+                   
+
+
+
+
+                    <div class="text-right">
+                         <h6 class="text-center">{{timeago fechapublicacion}}</h6>
+
+                        <a href="/links/postulate/{{idpuesto}}" class="btn btn-primary ">Postular</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {{else}}
+
+
+
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>No existen resultados de la busqueda.</p>
+                <a href="/links/search">Prueba otra vez!</a>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

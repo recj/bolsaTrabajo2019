@@ -1,0 +1,32 @@
+<div class="container p-4">
+    <h4 class="col-md-9 mx-auto">Lista de postulantes: </h4>
+    <div class="row">
+        
+        {{#each postulantes }}
+        <div class="col-md-9 mx-auto p-4">
+            <div class="card text-left">
+                <div class="card-body">
+                       
+                      <h5 class='card title'>Postulante: {{postulante}}</h5>
+                        
+                      <h5 class='card title'>Fecha postulacion: {{fechapostulacion}}</h5>
+                        <object  data={{file}}></object>
+                        <iframe  src={{file}}></iframe>
+                      
+                    
+                </div>
+            </div>
+        </div>
+        {{else}}
+
+
+
+        <div class="col-md-4 mx-auto">
+            <div class="card card-body text-center">
+                <p>Aun no existen postulantes.</p>
+                
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

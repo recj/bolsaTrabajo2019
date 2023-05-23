@@ -1,0 +1,55 @@
+<div class="container p-4">
+    <h4 class="col-md-12 mx-auto">INFORMACION DE LA OFERTA </h4><br><br>
+    <div class="row">
+
+
+        <div class="col-md-12 mx-auto p-4">
+            <div class="card text-left">
+                <div class="card-body">
+
+                    <h4 class='card title'>Organizacion: {{link.fullname}}</h4><br>
+                    <h4 class="card-title">
+                        Puesto Laboral: {{link.titulo}}
+                    </h4><br>
+
+                    <h5 class="m-2 text-center mx-auto">{{link.descripcion}}</h5><br>
+                    <h6>Ubicacion: {{link.ubicacion}} </h6><br>
+                    <h6>Tipo de jornada: {{link.tipojornada}} </h6><br>
+                    <h6>Tipo de periodo: {{link.tipoperiodo}} </h6><br>
+                    <h6> Tipo de contrato:
+                        {{link.tipocontrato}}</h6><br>
+                    <h6>Salario estimado: {{link.salario}}</h6>
+                    <br>
+                    <h5>Experiencia: {{link.experiencia}}</h5><br>
+
+
+                    <h5>Fecha limite de postulacion: {{link.fechapresentacion}} </h5><br><br>
+
+
+                    <div class="text-center">
+                        <h5 class="text-center">{{timeago link.fechapublicacion}}</h5>
+                        <form action="/links/postulate/{{link.idpuesto}}" method="POST" enctype="multipart/form-data"
+                            target="_blank">
+
+                            <p>
+
+                                Sube un archivo:
+
+                               
+
+                                <input type="file" name="file" >
+
+                                <input type="submit" value="Enviar datos">
+
+                            </p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
